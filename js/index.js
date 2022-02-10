@@ -7,7 +7,7 @@ console.log("Target:", WORD);
 
 function registerGuess(guess) {
     guess = guess.toUpperCase();
-    const temp="ERROR";
+    const temp=WORD;
     const status = [];
     const WORD_LETTERS = temp.split("");
     const GUESS_LETTERS=guess.split("");
@@ -21,7 +21,7 @@ function registerGuess(guess) {
             GUESS_LETTERS[i]=GUESS_LETTERS[i].toLowerCase(ch);
         }
     }
-    console.log(status)
+    // console.log(status)
     GUESS_LETTERS.forEach(function(letter, index) {
         // TODO: handle additional letters when there are duplicates
         let letterStatus;
@@ -36,13 +36,15 @@ function registerGuess(guess) {
             } else {
                 letterStatus = 0;
             }
-            if(!status[index])
-            status[index]=letterStatus;
+            if(!status[index]){
+                status[index]=letterStatus;
+
+            }
         }
         
         // status.push(letterStatus);
     })
-    console.log(WORD_LETTERS);
+    // console.log(WORD_LETTERS);
     printGuess(guess, status);
     return status;
 
