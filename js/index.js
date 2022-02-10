@@ -24,6 +24,7 @@ function registerGuess(guess) {
         status.push(letterStatus);
     })
     printGuess(guess, status);
+    //
     return status;
 }
 
