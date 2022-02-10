@@ -6,24 +6,59 @@ const el = document.querySelector("#guess");
 console.log("Target:", WORD);
 
 function registerGuess(guess) {
+    let counter = new Map();
+
+    for(let i=0;i<WORD.length;i++)
+    {
+        counter[WORD[i]]=0;
+    }
+    
+    for(let i=0;i<WORD.length;i++)
+    {
+        counter[WORD[i]]++;
+    }
+    
     guess = guess.toUpperCase();
+
+    for(let i=0;i<guess.length;i++){
+        if(guess[i]==WORD[i])               // INPLace  checking
+            counter[guess[i]]--;
+    }
+
     const status = [];
-    const WORD_LETTERS = WORD.split("");
-    guess.split("").forEach(function(letter, index) {
-        // TODO: handle additional letters when there are duplicates
+    for(let i=0;i<guess.length;i++){
+        console.log(guess[i])
         let letterStatus;
-        const existsInWord = WORD_LETTERS.indexOf(letter) > -1;
-        const isInPlace = WORD_LETTERS[index] === letter;
-        if (isInPlace) {
-            letterStatus = 2;
-        } else if (existsInWord) {
-            letterStatus = 1;
-        } else {
-            letterStatus = 0;
+        if(guess[i]==WORD[i]){
+            letterStatus=2;
         }
-        status.push(letterStatus);
-    })
+        else if(counter[guess[i]]>0){
+            letterStatus=1;
+            counter[guess[i]]--;
+        }
+        else{
+            letterStatus=0;
+        }   
+        console.log(letterStatus)
+        status.push(letterStatus)
+    }
+    
     printGuess(guess, status);
+    // guess.split("").forEach(function(letter, index) {
+    //     // TODO: handle additional letters when there are duplicates
+
+    //     let letterStatus;
+    //     const existsInWord = WORD_LETTERS.indexOf(letter) > -1;
+    //     const isInPlace = WORD_LETTERS[index] === letter;
+    //     if (isInPlace) {
+    //         letterStatus = 2;
+    //     } else if (existsInWord) {
+    //         letterStatus = 1;
+    //     } else {     
+    //         letterStatus = 0;
+    //     }
+    //     status.push(letterStatus);
+    // })
     return status;
 }
 
