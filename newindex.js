@@ -40,8 +40,7 @@ function create_map_count(word){
 
 //=======================================
  
-
-// console.log("Target:", WORD);
+console.log("Target:", WORD);
 
 //=========================================
 
@@ -131,13 +130,28 @@ function registerGuess(guess) {
     // return status;
 }
 
+el.focus();
+
+el.addEventListener("blur", function(e) {
+    el.focus();
+})
+
+document.addEventListener("focus", function(e) {
+    el.focus();
+})
+
 el.addEventListener("change", function(e) {
     const userInput = e.target.value;
     if (userInput.length === 5) {
         const result = registerGuess(userInput);
+        e.target.value = "";
+        const event = new Event('input');
+        e.target.dispatchEvent(event);
         const reducer = (previousValue, currentValue) => previousValue + currentValue;
         if (result.reduce(reducer) === 10) {
             el.classList.add("hidden");
+            const ghost=document.querySelector("#ghost-input");
+            ghost.classList.add("hidden");
             const victoryMessage = document.createElement("div");
             victoryMessage.innerText = "You won";
             document.body.appendChild(victoryMessage);
@@ -147,3 +161,9 @@ el.addEventListener("change", function(e) {
     }
 });
 
+
+
+el.addEventListener("input", function(e) {
+    const userInput = e.target.value;
+    drawGhostInput(userInput);
+});
