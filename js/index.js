@@ -8,21 +8,36 @@ console.log("Target:", WORD);
 function registerGuess(guess) {
     guess = guess.toUpperCase();
     const status = [];
-    const WORD_LETTERS = WORD.split("");
-    guess.split("").forEach(function(letter, index) {
-        // TODO: handle additional letters when there are duplicates
-        let letterStatus;
-        const existsInWord = WORD_LETTERS.indexOf(letter) > -1;
-        const isInPlace = WORD_LETTERS[index] === letter;
-        if (isInPlace) {
-            letterStatus = 2;
-        } else if (existsInWord) {
-            letterStatus = 1;
-        } else {
-            letterStatus = 0;
+    var freq=new Map();
+
+    for(var i=0;i<WORD.length;i++)
+    {
+        freq[WORD[i]]++;
+    }
+
+    for(var i=0;i<guess.length;i++)
+    {
+        if(guess[i]==WORD[i])
+        {
+            freq[WORD[i]]--;
         }
+    }
+    
+    for(var i=0;i<guess.length;i++)
+    {
+        if(guess[i]==WORD[i])
+            letterStatus=2
+        else if(guess[i]!=WORD[i] && freq[guess[i]]>0)
+        {
+            letterStatus=1
+            freq[guess[i]]--;
+        }
+        else
+            letterStatus=0;
         status.push(letterStatus);
-    })
+    }
+   
+   
     printGuess(guess, status);
     return status;
 }
