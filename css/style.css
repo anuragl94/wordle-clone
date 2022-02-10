@@ -27,8 +27,7 @@ header {
 }
 
 #guess {
-    outline: none;
-    color: transparent;
+    
     background-color: transparent;
     border: none;
 }

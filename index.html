@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Wordle</title>
+        <meta charset="utf-8">
         <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="css/fancy.css" />
         <link rel="shortcut icon" type="image/jpg" href="assets/favicon.svg"/>
@@ -23,6 +24,7 @@
             <div id="root">
                 
             </div>
+            
             <div class="userguess" id="ghost-input">
                 <div class="letter"></div>
                 <div class="letter"></div>
@@ -30,7 +32,44 @@
                 <div class="letter"></div>
                 <div class="letter"></div>
             </div>
-            <input id="guess" value="" maxlength="5" />
+            <div class="Keypad">
+           <div>
+               <button value="Q">Q</button>
+               <button value="W">W</button>
+               <button value="E">E</button>
+               <button value="R">R</button>
+               <button value="T">T</button>
+               <button value="Y">Y</button>
+               <button value="U">U</button>
+               <button value="I">I</button>
+               <button value="O">O</button>
+               <button value="P">P</button>
+           </div>
+           <div style="padding-left: 20%;padding-right: 20%;">
+            
+            <button value="A">A</button>
+            <button value="S">S</button>
+            <button value="D">D</button>
+            <button value="F">F</button>
+            <button value="G">G</button>
+            <button value="H">H</button>
+            <button value="J">J</button>
+            <button value="K">K</button>
+            <button value="L">L</button>
+        </div>
+        <div style="padding-left: 20%;padding-right: 20%;">
+            
+            <button value="Z">Z</button>
+            <button value="X">X</button>
+            <button value="C">C</button>
+            <button value="V">V</button>
+            <button value="B">B</button>
+            <button value="N">N</button>
+            <button value="M">M</button>
+            
+            
+        </div>
+        </div>
         </main>
     </body>
     <script src="js/lib/words.js"></script>
