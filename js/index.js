@@ -45,11 +45,16 @@ function registerGuess(guess) {
 
     let letterStatus;
     for(let i=0;i<guess.length;i++){
-        const isInPlace = WORD[i] === guess[i];
-        if(isInPlace){
+        if(WORD[i] === guess[i]){
             freq[guess[i]]--;
+        }
+    }
+    
+    for(let i=0;i<guess.length;i++){
+        if(WORD[i] === guess[i]){
             letterStatus=2;
-        }else if(WORD[i]!=guess[i] && freq[guess[i]]>0){
+        }
+        else if(WORD[i]!=guess[i] && freq[guess[i]]>0){
             freq[guess[i]]--;
             letterStatus=1;
         }else{
@@ -57,15 +62,27 @@ function registerGuess(guess) {
         }
         status.push(letterStatus);
     }
-    
     printGuess(guess, status);
     return status;
 }
+
+el.focus();
+
+el.addEventListener("blur", function(e) {
+    el.focus();
+})
+
+document.addEventListener("focus", function(e) {
+    el.focus();
+})
 
 el.addEventListener("change", function(e) {
     const userInput = e.target.value;
     if (userInput.length === 5) {
         const result = registerGuess(userInput);
+        e.target.value = "";
+        const event = new Event('input');
+        e.target.dispatchEvent(event);
         const reducer = (previousValue, currentValue) => previousValue + currentValue;
         if (result.reduce(reducer) === 10) {
             el.classList.add("hidden");
@@ -78,3 +95,7 @@ el.addEventListener("change", function(e) {
     }
 });
 
+el.addEventListener("input", function(e) {
+    const userInput = e.target.value;
+    drawGhostInput(userInput);
+});
