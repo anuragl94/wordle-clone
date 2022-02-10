@@ -30,6 +30,7 @@ function registerGuess(guess) {
     guess.split("").forEach(function(letter, index) {
         // TODO: handle additional letters when there are duplicates
         let letterStatus;
+        // this is for storing status
 
         const existsInWord = count[letter] > 0;
         const isInPlace = WORD_LETTERS[index] === letter;
