@@ -26,7 +26,7 @@ function registerGuess(guess) {
     printGuess(guess, status);
     return status;
 }
-
+//
 el.focus();
 
 el.addEventListener("blur", function(e) {
