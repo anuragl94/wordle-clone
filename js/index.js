@@ -7,24 +7,47 @@ console.log("Target:", WORD);
 
 function registerGuess(guess) {
     guess = guess.toUpperCase();
+    const temp=WORD;
     const status = [];
-    const WORD_LETTERS = WORD.split("");
-    guess.split("").forEach(function(letter, index) {
+    const WORD_LETTERS = temp.split("");
+    const GUESS_LETTERS=guess.split("");
+    // console.log(WORD_LETTERS);
+    for(let i=0;i<5;i++){
+        if(WORD_LETTERS[i]===GUESS_LETTERS[i]){
+            status[i]=2;
+            let ch=WORD_LETTERS[i];
+            // let ind=WORD_LETTERS.indexOf(ch);
+            WORD_LETTERS[i]=WORD_LETTERS[i].toLowerCase(ch);
+            GUESS_LETTERS[i]=GUESS_LETTERS[i].toLowerCase(ch);
+        }
+    }
+    // console.log(status)
+    GUESS_LETTERS.forEach(function(letter, index) {
         // TODO: handle additional letters when there are duplicates
         let letterStatus;
-        const existsInWord = WORD_LETTERS.indexOf(letter) > -1;
-        const isInPlace = WORD_LETTERS[index] === letter;
-        if (isInPlace) {
-            letterStatus = 2;
-        } else if (existsInWord) {
-            letterStatus = 1;
-        } else {
-            letterStatus = 0;
+        let ch=guess[index];
+        if(ch===ch.toUpperCase()){
+            const existsInWord = WORD_LETTERS.indexOf(letter) > -1;
+            // const isInPlace = WORD_LETTERS[index] === letter;
+            if(existsInWord){
+                let ind=WORD_LETTERS.indexOf(letter);
+                WORD_LETTERS[ind]=WORD_LETTERS[ind].toLowerCase(letter)
+                letterStatus = 1;
+            } else {
+                letterStatus = 0;
+            }
+            if(!status[index]){
+                status[index]=letterStatus;
+
+            }
         }
-        status.push(letterStatus);
+        
+        // status.push(letterStatus);
     })
+    // console.log(WORD_LETTERS);
     printGuess(guess, status);
     return status;
+
 }
 
 el.focus();
