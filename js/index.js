@@ -1,5 +1,5 @@
 let attempts = 6;
-
+console.log("Hello")
 const WORD = WORDS[Math.floor(Math.random() *  WORDS.length)];
 const el = document.querySelector("#guess");
 
@@ -44,21 +44,6 @@ function registerGuess(guess) {
     }
     
     printGuess(guess, status);
-    // guess.split("").forEach(function(letter, index) {
-    //     // TODO: handle additional letters when there are duplicates
-
-    //     let letterStatus;
-    //     const existsInWord = WORD_LETTERS.indexOf(letter) > -1;
-    //     const isInPlace = WORD_LETTERS[index] === letter;
-    //     if (isInPlace) {
-    //         letterStatus = 2;
-    //     } else if (existsInWord) {
-    //         letterStatus = 1;
-    //     } else {     
-    //         letterStatus = 0;
-    //     }
-    //     status.push(letterStatus);
-    // })
     return status;
 }
 
