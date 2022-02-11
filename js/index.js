@@ -11,7 +11,7 @@ KeyboardBtn.forEach((key)=>{
         userInput+=e.target.value;
         drawGhostInput(userInput);
         if (userInput.length === 5) {
-            drawGhostInput("");
+            drawGhostInput("");         // setting the new input to 0
             const result = registerGuess(userInput);
             userInput="";
             e.target.value = "";
