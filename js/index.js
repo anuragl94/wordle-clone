@@ -30,7 +30,7 @@ function registerGuess(guess) {
         if (letterStatus === 2) {
             // continue
             return;
-        } else if (existsInWord && currentLetterFreq[letter]) {
+        } else if (existsInWord && currentLetterFreq[letter] > 0) {
             letterStatus = 1;
             currentLetterFreq[letter]--;
         } else {
