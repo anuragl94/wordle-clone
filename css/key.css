@@ -1,0 +1,26 @@
+.user .letter{
+    background-color: gray;
+    display: inline-block;
+    height: 48px;
+    width: 48px;
+    line-height: 48px;
+    text-align: center;
+    font-size: 25px;
+    margin: 0 4px;
+    vertical-align: middle;
+    border-radius: 4px;
+    text-decoration: none;
+    border: none;
+}
+.user .letter:hover{
+    background-color: black;
+    color: white;
+}
+
+.user {
+    
+    margin-bottom: 8px;
+    /* ugly hack to avoid spaces between inline-blocks */
+    font-size: 0;
+    
+}

@@ -3,6 +3,7 @@
     <head>
         <title>Wordle</title>
         <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/key.css" />
         <link rel="stylesheet" href="css/fancy.css" />
         <link rel="shortcut icon" type="image/jpg" href="assets/favicon.svg"/>
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,6 +24,11 @@
             <div id="root">
                 
             </div>
+  
+            <input id="guess" value="" maxlength="5" />
+            <div id="root2">
+
+            </div>
             <div class="userguess" id="ghost-input">
                 <div class="letter"></div>
                 <div class="letter"></div>
@@ -30,11 +36,15 @@
                 <div class="letter"></div>
                 <div class="letter"></div>
             </div>
-            <input id="guess" value="" maxlength="5" />
         </main>
+       
+        <div id="root1">
+
+        </div>
+        
     </body>
     <script src="js/lib/words.js"></script>
     <script src="js/lib/domWork.js"></script>
     <script src="js/index.js"></script>
-    </script>
+    <script src="js/keyboard.js"></script>
 </html>
