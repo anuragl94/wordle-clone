@@ -27,3 +27,28 @@ function drawGhostInput(word) {
     const ghost = document.getElementById("ghost-input");
     word.split("").forEach((l, i) => ghost.children[i].innerText = l);
 }
+
+const line1 = ["Q","W","E","R","T","Y","U","I","O","P"];
+const line2 = ["A","S","D","F","G","H","J","K","L"];
+const line3 = ["Z","X","C","V","B","N","M"];
+
+function drawkeyboard(line) {
+
+    let bigdiv =document.createElement("div");
+    bigdiv.classList.add("keyboardlinestyling")
+
+    for(let i=0;i<line.length;i++)
+    {
+        let key = document.createElement("div");
+        key.innerText =line[i];
+        key.classList.add("keystyling");
+        bigdiv.appendChild(key);
+    }
+    let virtualkeyboard =document.getElementById("virtualkeyboard")
+    virtualkeyboard.appendChild(bigdiv);
+
+}
+
+drawkeyboard(line1);
+drawkeyboard(line2);
+drawkeyboard(line3);

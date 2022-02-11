@@ -3,6 +3,7 @@ body {
     margin: 0;
     font-family: 'Open Sans', sans-serif;
     text-align: center;
+    background-color: #000;
 }
 
 body * {
@@ -10,11 +11,13 @@ body * {
     font-family: inherit;
     font-size: inherit;
     color: inherit;
+
 }
 
 header h1 {
     font-size: 32px;
     font-weight: 600;
+    color :#d3d6da
 }
 
 header {
@@ -73,5 +76,45 @@ header {
 
 #ghost-input .letter {
     box-shadow: inset 0 0 0 2px #878a8c;
-    color: #000;
+    color: white;
+}
+footer{
+    align-items: center;
+    display: flex;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 50px;
+}
+
+.keyboardlinestyling {
+
+    display : flex;
+}
+
+.keystyling {
+
+    display: inline-block;
+    height: 48px;
+    width: 48px;
+    line-height: 48px;
+    text-align: center;
+    font-size: 32px;
+    margin: 4px 4px;
+    color: RED;
+    border: 2px solid white;
+    background-color: WHITE;
+
+}
+#virtualkeyboard {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main{
+    overflow-y: scroll;
+    height:500px;
 }
