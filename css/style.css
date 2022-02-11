@@ -25,13 +25,13 @@ header {
 #center-content {
     display: flex;
 }
-
+/* 
 #guess {
     outline: none;
     color: transparent;
     background-color: transparent;
     border: none;
-}
+}     */
 
 .userguess {
     margin-bottom: 8px;
