@@ -1,7 +1,35 @@
 let attempts = 6;
+let userInput="";
 console.log("Hello")
 const WORD = WORDS[Math.floor(Math.random() *  WORDS.length)];
 const el = document.querySelector("#guess");
+const KeyboardBtn = document.querySelectorAll("button");
+
+
+KeyboardBtn.forEach((key)=>{
+    key.addEventListener("click",function(e){
+        userInput+=e.target.value;
+        drawGhostInput(userInput);
+        if (userInput.length === 5) {
+            drawGhostInput("");
+            const result = registerGuess(userInput);
+            userInput="";
+            e.target.value = "";
+            const event = new Event('input');
+            e.target.dispatchEvent(event);
+            const reducer = (previousValue, currentValue) => previousValue + currentValue;
+            if (result.reduce(reducer) === 10) {
+                el.classList.add("hidden");
+                const victoryMessage = document.createElement("div");
+                victoryMessage.innerText = "You won";
+                document.body.appendChild(victoryMessage);
+            }
+            console.l
+        } else {
+            console.log("Skip this");
+        }
+    })
+})
 
 console.log("Target:", WORD);
 
