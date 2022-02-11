@@ -1,6 +1,6 @@
 let attempts = 6;
 
-const WORD = 'FADEF' //WORDS[Math.floor(Math.random() *  WORDS.length)];
+const WORD = WORDS[Math.floor(Math.random() *  WORDS.length)];
 const el = document.querySelector("#guess");
 
 console.log("Target:", WORD);
