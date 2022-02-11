@@ -1,28 +1,43 @@
 let attempts = 6;
 
 const WORD = WORDS[Math.floor(Math.random() *  WORDS.length)];
+const LETTER_FREQ = WORD.split("").reduce((prev, cur) => ({
+    ...prev,
+    [cur]: 1 + (prev[cur] || 0)
+}));
+
 const el = document.querySelector("#guess");
 
 console.log("Target:", WORD);
 
 function registerGuess(guess) {
     guess = guess.toUpperCase();
-    const status = [];
+    const guessedLetters = guess.split("");
+    const status = Array(guessedLetters.length).fill(0);
     const WORD_LETTERS = WORD.split("");
-    guess.split("").forEach(function(letter, index) {
-        // TODO: handle additional letters when there are duplicates
-        let letterStatus;
-        const existsInWord = WORD_LETTERS.indexOf(letter) > -1;
+    let currentLetterFreq = { ...LETTER_FREQ };
+    guessedLetters.forEach(function(letter, index) {
         const isInPlace = WORD_LETTERS[index] === letter;
         if (isInPlace) {
-            letterStatus = 2;
-        } else if (existsInWord) {
+            status[index] = 2;
+            currentLetterFreq[letter]--;
+        }
+    })
+    guessedLetters.forEach(function(letter, index) {
+        // TODO: handle additional letters when there are duplicates
+        let letterStatus = status[index];
+        const existsInWord = WORD_LETTERS.indexOf(letter) > -1;
+        if (letterStatus === 2) {
+            // continue
+            return;
+        } else if (existsInWord && currentLetterFreq[letter]) {
             letterStatus = 1;
+            currentLetterFreq[letter]--;
         } else {
             letterStatus = 0;
         }
-        status.push(letterStatus);
-    })
+        status[index] = letterStatus;
+    });
     printGuess(guess, status);
     return status;
 }
