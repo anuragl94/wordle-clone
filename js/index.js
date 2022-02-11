@@ -51,7 +51,7 @@ function registerGuess(guess) {
         if( status[index]!==2 && existsInWord && ext[letter]>0 )
         {
              letterStatus=1;
-             status[index]=0;
+             status[index]=1;
              ext[letter]--;
         }
     })
