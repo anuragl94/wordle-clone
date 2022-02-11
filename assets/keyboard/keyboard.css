@@ -1,0 +1,14 @@
+.button{
+    height:50px;
+    width:45px;
+    font-weight: 700;
+    margin-right: 8px;
+    font-size: large;
+}
+#keyboard div{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+#keyboard{
+    position:static;
+}
