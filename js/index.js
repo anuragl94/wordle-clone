@@ -18,14 +18,14 @@ function registerGuess(guess) {
             map[WORD[i]] = 1;
         }
     }
-    console.log(map);
+    // console.log(map);
     for (let i = 0; i < 5; i++) {
         if (WORD[i] == guess[i]) {
             status[i] = 2;
             map[WORD[i]]--;
         }
     }
-    console.log(map);
+    //   console.log(map);
     for (let i = 0; i < 5; i++) {
         if (status[i] != 2) {
             if (map[guess[i]] > 0) {
@@ -36,7 +36,7 @@ function registerGuess(guess) {
                 status[i] = 0;
             }
         }
-        console.log(map);
+        // console.log(map);
     }
 
     printGuess(guess, status);
