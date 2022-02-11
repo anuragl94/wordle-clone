@@ -61,14 +61,14 @@
 //     drawGhostInput(userInput);
 // });
 
-const max_attempts=8;
-var attempts =max_attempts;
 
-const main=document.querySelector("main");
-main.style.height=(max_attempts*7).toString()+"vh";
+const attempts =8;
 
-const victory=document.querySelector("#victory");
-victory.style.height=((10-max_attempts)*3).toString()+"vh";
+// const main=document.querySelector("main");
+// main.style.height=(attempts*7).toString()+"vh";
+
+// const victory=document.querySelector("#victory");
+// victory.style.height=((10-attempts)*3).toString()+"vh";
 
 
 const WORD = WORDS[Math.floor(Math.random() *  WORDS.length)];
@@ -232,22 +232,21 @@ el.addEventListener("change", function(e) {
     } else {
         console.log("Skip this");
     }
-    if(attempts<=0)
-    {
-        el.classList.add("hidden");
-        const ghost=document.querySelector("#ghost-input");
-        ghost.classList.add("hidden");
-        const victoryMessage = document.createElement("div");
-        victoryMessage.innerText = "go back LOSER!!";
-        const victory=document.querySelector("#victory");
-        victory.appendChild(victoryMessage);
-    }
+    // if(attempts<=0)
+    // {
+    //     el.classList.add("hidden");
+    //     const ghost=document.querySelector("#ghost-input");
+    //     ghost.classList.add("hidden");
+    //     const victoryMessage = document.createElement("div");
+    //     victoryMessage.innerText = "go back LOSER!!";
+    //     const victory=document.querySelector("#victory");
+    //     victory.appendChild(victoryMessage);
+    // }
 });
 
 
 
 el.addEventListener("input", function(e) {
-    console.log("input event");
     const userInput = e.target.value;
     drawGhostInput(userInput);
 });

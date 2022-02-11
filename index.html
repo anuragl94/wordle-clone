@@ -8,6 +8,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./assets/keyboard/keyboard.css">
     </head>
     <body>
         <header>
@@ -16,6 +17,7 @@
                 <h1>WORDLE</h1>
             </div>
         </header>
+        <div class="main">
         <main>
             <div id="grid">
                 <!-- controlled by JS -->
@@ -32,6 +34,14 @@
             </div>
             <input id="guess" value="" maxlength="5" />
         </main>
+        </div>
+        <div id="victory">
+
+        </div>
+        <div id="keyboard">
+
+        </div>
+        <script src="./assets/keyboard/keyboard.js"></script>
     </body>
     <script src="js/lib/words.js"></script>
     <script src="js/lib/domWork.js"></script>
