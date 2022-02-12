@@ -1,20 +1,10 @@
-.button{
-    height:auto;
-    width:auto;
-    font-weight: 900;
-    margin-right: 8px;
-    font-size:large;
-    padding: 10px;
-    border-radius: 10px;
-}
-#keyboard div{
-    margin-top: 10px;
+.keyboard_row{
     margin-bottom: 10px;
 }
-#keyboard{
-    position:static;
-}
-.button:hover{
-    background-color: rgb(163, 241, 182);
-    z-index: 2;
+.keyboard_button{
+    margin-right: 5px;
+    padding: 15px;
+    font-weight: 900;
+    font-size: larger;
+    border-radius: 10px;
 }

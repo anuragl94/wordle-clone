@@ -1,62 +1,56 @@
-function make_row(message){
-const row=document.createElement("div");
-const el = document.querySelector("#guess");
-var input_event = new Event('input', {
-            bubbles: true,
-            cancelable: true,
-});
-var change_event=new Event('change',{
-    bubbles:true,
-    cancelable:true,
-});
+var ele=document.querySelector("#guess");
+ele.value="";
 
-el.value="";
+ele.focus();
 
-
-message.forEach(function(letter)
+function keyboard_button_click(letter)
 {
-    const button=document.createElement("button");
-    button.innerText=letter;
-    button.classList.add("button");
-     button.onclick=function(ev){
-         console.log(button.innerText);
-        //  const el = document.querySelector("#guess");
-        //  el.focus();
-        //  el.addEventListener("blur", function(e) {
-        //     el.focus();
-        // })
-        
-        // document.addEventListener("focus", function(e) {
-        //     el.focus();
-        // })
-        button.style.backgroundColor="#e7e7e7";
-        if(letter==="CANCEL")
-        {
-            if(el.value.length>0){
-            el.value=el.value.slice(0,el.value.length-1);
-            console.log(el.value);
-            el.dispatchEvent(input_event);}
-        }
-        else if(letter==="ENTER"){
-            el.dispatchEvent(change_event);
-        }
-        else{
-        el.value=el.value+letter;
-        el.dispatchEvent(input_event);
-    }
-    el.focus();
-     }
-    row.appendChild(button);
-});
-return row;
+    // console.log(letter);
+    // if(letter=="CANCEL")
+    // {
+    //     if(ele.value.length>0)
+    //     {
+    //         ele.value=ele.value.slice(0,ele.value.length-1);
+    //     }
+    // }
+    //  else if(letter!="ENTER")
+    //  {
+    //     if(ele.value.length<5)
+    //     {
+    //         ele.value=ele.value+letter;
+    //     }
+    // }
+    // key_pressed(letter);
+    // el.focus();
+
+    // el.addEventListener("blur", function(e) {
+    //     el.focus();
+    // })
+
+    // document.addEventListener("focus", function(e) {
+    //     el.focus();
+    // })
+    key_pressed(letter);
 }
-const row1=document.createElement("div");
-row1.appendChild(make_row(["Q","W","E","R","T","Y","U","I","O","P"]));
-const row2=document.createElement("div");
-row2.appendChild(make_row(["A","S","D","F","G","H","J","K","L"]));
-const row3=document.createElement("div");
-row3.appendChild(make_row(["Z","X","C","V","B","N","M","ENTER","CANCEL"]));
-const keyboard=document.querySelector("#keyboard");
-keyboard.appendChild(row1);
-keyboard.appendChild(row2);
-keyboard.appendChild(row3);
+
+
+function create_row(keys)
+{
+    var row=document.createElement("div");
+    row.classList.add("keyboard_row");
+    keys.forEach(function(key){
+        const button=document.createElement("button");
+        button.innerText=key;
+        button.classList.add("keyboard_button");
+        button.classList.add(key);
+        button.onclick=function(){
+            keyboard_button_click(button.innerText);
+        };
+        row.appendChild(button);
+    });
+    return row;
+}
+var keyboard=document.querySelector("#keyboard");
+keyboard.appendChild(create_row(["Q","W","E","R","T","Y","U","I","O","P"]));
+keyboard.appendChild(create_row(["A","S","D","F","G","H","J","K","L"]));
+keyboard.appendChild(create_row(["Z","X","C","V","B","N","M","ENTER","CANCEL"]));
