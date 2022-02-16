@@ -29,8 +29,14 @@ function registerGuess(guess) {
     } else {
       letterStatus = 0;
     }
+    enteredKeyStatus[letter] = letterStatus;
     status.push(letterStatus);
   });
+
+  //updating key status for keyboard
+  
+  updateKeyBoardKeyStatus()
+
   printGuess(guess, status);
   return status;
 }
@@ -54,10 +60,12 @@ el.addEventListener("change", function (e) {
     e.target.dispatchEvent(event);
     const reducer = (previousValue, currentValue) =>
       previousValue + currentValue;
+      console.log(result)
     if (result.reduce(reducer) === 10) {
       el.classList.add("hidden");
       const victoryMessage = document.createElement("div");
-      victoryMessage.innerText = "You won";
+      victoryMessage.setAttribute('id','wonText')
+      victoryMessage.innerText = "You won...!";
       document.body.appendChild(victoryMessage);
     }
   } else {

@@ -1,77 +1,161 @@
 body {
-    box-sizing: border-box;
-    margin: 0;
-    font-family: 'Open Sans', sans-serif;
-    text-align: center;
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
 }
 
 body * {
-    box-sizing: inherit;
-    font-family: inherit;
-    font-size: inherit;
-    color: inherit;
+  box-sizing: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
 }
 
 header h1 {
-    font-size: 32px;
-    font-weight: 600;
+  font-size: 32px;
+  font-weight: 600;
 }
 
 header {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 #center-content {
-    display: flex;
+  display: flex;
 }
 
 #guess {
-    outline: none;
-    color: transparent;
-    background-color: transparent;
-    border: none;
+  outline: none;
+  color: transparent;
+  background-color: transparent;
+  border: none;
 }
 
 .userguess {
-    margin-bottom: 8px;
-    /* ugly hack to avoid spaces between inline-blocks */
-    font-size: 0;
+  margin-bottom: 8px;
+  /* ugly hack to avoid spaces between inline-blocks */
+  font-size: 0;
 }
 
 .userguess .letter {
-    display: inline-block;
-    height: 48px;
-    width: 48px;
-    line-height: 48px;
-    text-align: center;
-    font-size: 32px;
-    margin: 0 4px;
-    color: white;
-    vertical-align: middle;
+  display: inline-block;
+  height: 48px;
+  width: 48px;
+  line-height: 48px;
+  text-align: center;
+  font-size: 32px;
+  margin: 0 4px;
+  color: white;
+  vertical-align: middle;
 }
 
 .userguess .status0 {
-    background-color: #787c7e;
+  background-color: #787c7e;
 }
 
 .userguess .status1 {
-    background-color: #c9b558;
+  background-color: #c9b558;
 }
 
 .userguess .status2 {
-    background-color: #6aaa63;
+  background-color: #6aaa63;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 #ghost-input .letter:empty {
-    box-shadow: inset 0 0 0 2px #d3d6da;
+  box-shadow: inset 0 0 0 2px #d3d6da;
 }
 
 #ghost-input .letter {
-    box-shadow: inset 0 0 0 2px #878a8c;
-    color: #000;
+  box-shadow: inset 0 0 0 2px #878a8c;
+  color: #000;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  align-items: center;
+}
+
+#virualKeyboard {
+  margin: 25px;
+}
+
+.keyBtn:hover{
+  position: relative;
+  transform: scale(1.1);
+  animation-duration: 0.5s;
+}
+
+.keyBtn:active{
+  position: relative;
+  transform: translateY(4px);
+  animation-duration: 0.5s;
+}
+
+.keyBtn {
+  display: inline-block;
+  height: 50px;
+  width: 50px;
+  background-color: rgb(0, 0, 0);
+  border-radius: 5px;
+  margin-right: 15px;
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 20px;
+  align-items: center;
+  font-weight: 600;
+  box-shadow: 3px 3px 10px #000;
+  color: #fff;
+  cursor: pointer;
+}
+
+.wideKeyBtn {
+  width: 100px;
+  background-color: #d2d6db;
+  box-shadow: 1px 1px 10px gray;
+  color: #000;
+}
+
+.keyBtnStatus0 {
+  background-color: #787c7e;
+}
+
+.keyBtnStatus1 {
+  background-color: #c9b558;
+}
+
+.keyBtnStatus2 {
+  background-color: #6aaa63;
+}
+
+/*key btn's animation*/
+
+@keyframes animateKey {
+  0% {
+    transform: scale(0.25);
+  }
+  50% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.keyAnimation {
+  position: relative;
+  animation: animateKey 0.5s linear;
+}
+
+#wonText{
+    font-size: 30px;
+    font-weight: 800;
+    color: #6aaa63 ;
 }
