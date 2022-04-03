@@ -1,3 +1,10 @@
+const words = () => {
+    fetch('https://www-cs-faculty.stanford.edu/~knuth/sgb-words.txt')
+    .then(res => console.log(res));
+}
+
+words()
+
 const WORDS = [
     "ABUSE",
     "ADULT",

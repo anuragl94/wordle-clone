@@ -22,6 +22,7 @@ const keyboardCharKeyPress = (keyValue) => {
     guessInput.value = guessInput.value + keyValue.target.innerText;
     drawGhostInput(guessInput.value);
   }
+  
 };
 
 const handleBackspaceKey = () => {
@@ -34,14 +35,8 @@ const handleBackspaceKey = () => {
 
 const handlekeyBoardEnter = () => {
   const guessInput = document.getElementById("guess");
-  if (guessInput.value.length === 5) {
-    registerGuess(guessInput.value);
-    guessInput.value = "";
-    drawGhostInput("");
-
-    //trigger change event
     guessInput.dispatchEvent(new Event("change"));
-  }
+  
 };
 
 const createDomKeyboard = () => {
